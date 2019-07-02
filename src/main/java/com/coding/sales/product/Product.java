@@ -18,9 +18,21 @@ public class Product {
      * 商品价格
      */
     private BigDecimal price;
+    /**
+     * 单位
+     */
     private String unit;
+    /**
+     * 满减规则
+     */
     private String rule_full_reduction;
+    /**
+     * 优惠规则
+     */
     private String rule_discount;
+
+    public Product() {
+    }
 
     public Product(String productId, String productName, BigDecimal price, String unit) {
         this(productId, productName, price, unit, null, null);

@@ -18,6 +18,9 @@ public class Vip {
      */
     private Long score;
 
+    public Vip() {
+    }
+
     public Vip(String name, VipLevelEnum level, String memberId, Long score) {
         this.name = name;
         this.level = level;
