@@ -2,6 +2,7 @@ package com.coding.sales;
 
 import com.coding.sales.discount.Discount;
 import com.coding.sales.discount.DiscountData;
+import com.coding.sales.discount.DiscountHandler;
 import com.coding.sales.input.OrderCommand;
 import com.coding.sales.input.OrderItemCommand;
 import com.coding.sales.input.PaymentCommand;
@@ -88,7 +89,7 @@ public class OrderApp {
 
 
             //处理优惠信息
-            BigDecimal discountAmt = new BigDecimal(0);
+            /*BigDecimal discountAmt = new BigDecimal(0);
             BigDecimal discountAmt_card = new BigDecimal(0);
             //客户优惠券
             List<String> discoutCards = viper.getDiscountList();
@@ -136,7 +137,8 @@ public class OrderApp {
             if (discountAmt.compareTo(new BigDecimal(0)) > 0) {
                 DiscountItemRepresentation discountItemRepresentation = new DiscountItemRepresentation(productId, product.getProductName(), discountAmt);
                 discountItems.add(discountItemRepresentation);
-            }
+            }*/
+            discountTotalAmt = discountTotalAmt.add(DiscountHandler.handler(discountItems, viper, product, productCount));
 
         }
 
