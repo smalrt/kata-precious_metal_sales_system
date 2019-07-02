@@ -16,7 +16,8 @@ public class Vips {
 
         List<String> list2 = new ArrayList<String>();
         list2.add("95折券");
-        Vip vip2 = new Vip("王立",VipLevelEnum.NORMAL,"6630009999",48860, list2);
+        list2.add("9折券");
+        Vip vip2 = new Vip("王立",VipLevelEnum.GOLD,"6630009999",48860, list2);
         vipMap.put(vip2.getMemberId(), vip2);
 
         Vip vip3 = new Vip("李想",VipLevelEnum.PLATINUM,"8230009999",98860,null);

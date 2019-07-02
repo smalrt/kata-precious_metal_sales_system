@@ -17,7 +17,8 @@ public class OrderAppTest {
         Object[][] data = new Object[][]{
                 {"sample_command.json", "sample_result.txt"},
                 {"TC1_0_Input.json", "TC1_0_Output.txt"},
-                {"TC1_1_Input.json", "TC1_1_Output.txt"},
+                /*{"TC1_1_Input.json", "TC1_1_Output.txt"},
+                {"TC2_0_Input.json", "TC2_0_Output.txt"},*/
         };
 
         return Arrays.asList(data);
