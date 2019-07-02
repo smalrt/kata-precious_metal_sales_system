@@ -1,7 +1,5 @@
 package com.coding.sales;
 
-import com.coding.sales.discount.Discount;
-import com.coding.sales.discount.DiscountData;
 import com.coding.sales.discount.DiscountHandler;
 import com.coding.sales.input.OrderCommand;
 import com.coding.sales.input.OrderItemCommand;
@@ -14,18 +12,15 @@ import com.coding.sales.product.Product;
 import com.coding.sales.product.Store;
 import com.coding.sales.vip.Vip;
 import com.coding.sales.vip.VipLevelEnum;
-import com.coding.sales.vip.VipLevelResolver;
+import com.coding.sales.vip.VipLevelHandler;
 import com.coding.sales.vip.Vips;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 销售系统的主入口
@@ -152,7 +147,8 @@ public class OrderApp {
         }
 
         //计算新增积分
-        int addScore = 0;
+        int addScore = VipLevelHandler.handlerPoint(viper, totalAmt.subtract(discountTotalAmt));
+        /*int addScore = 0;
         BigDecimal totalAmt_jsscore = totalAmt.subtract(discountTotalAmt);
         VipLevelEnum vipLevel = viper.getLevel();
         if (VipLevelEnum.NORMAL.equals(vipLevel)) {
@@ -165,12 +161,12 @@ public class OrderApp {
             addScore += Integer.parseInt(String.valueOf(Math.ceil(Double.parseDouble(totalScore))));
         } else {
             addScore += Integer.parseInt(totalAmt_jsscore.toString()) * 2;
-        }
+        }*/
 
         //新的积分
         int newScore = viper.getScore() + addScore;
         //新的等级
-        VipLevelEnum newVipLevel = VipLevelResolver.resolver(newScore);
+        VipLevelEnum newVipLevel = VipLevelHandler.resolver(newScore);
 
         //生成打印小票
         OrderRepresentation result = null;
