@@ -1,6 +1,9 @@
 package com.coding.sales.product;
 
+import com.coding.sales.discount.Discount;
+
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * 商品信息
@@ -25,11 +28,11 @@ public class Product {
     /**
      * 满减规则
      */
-    private String rule_full_reduction;
+    private List<String> rule_full_reduction;
     /**
      * 优惠规则
      */
-    private String rule_discount;
+    private String discountId;
 
     public Product() {
     }
@@ -38,13 +41,13 @@ public class Product {
         this(productId, productName, price, unit, null, null);
     }
 
-    public Product(String productId, String productName, BigDecimal price, String unit, String rule_full_reduction, String rule_discount) {
+    public Product(String productId, String productName, BigDecimal price, String unit, List<String> rule_full_reduction, String discountId) {
         this.productId = productId;
         this.productName = productName;
         this.price = price;
         this.unit = unit;
         this.rule_full_reduction = rule_full_reduction;
-        this.rule_discount = rule_discount;
+        this.discountId = discountId;
     }
 
     public String getProductId() {
@@ -69,5 +72,29 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public List<String> getRule_full_reduction() {
+        return rule_full_reduction;
+    }
+
+    public void setRule_full_reduction(List<String> rule_full_reduction) {
+        this.rule_full_reduction = rule_full_reduction;
+    }
+
+    public String getDiscountId() {
+        return discountId;
+    }
+
+    public void setDiscountId(String discountId) {
+        this.discountId = discountId;
     }
 }

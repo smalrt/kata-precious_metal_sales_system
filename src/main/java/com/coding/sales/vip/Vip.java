@@ -1,5 +1,7 @@
 package com.coding.sales.vip;
 
+import java.util.List;
+
 public class Vip {
     /**
      * 姓名
@@ -16,16 +18,21 @@ public class Vip {
     /**
      * 积分
      */
-    private Long score;
+    private Integer score;
+    /**
+     * 打折券 id-数量
+     */
+    private List<String> discountList;
 
     public Vip() {
     }
 
-    public Vip(String name, VipLevelEnum level, String memberId, Long score) {
+    public Vip(String name, VipLevelEnum level, String memberId, Integer score, List<String> discountList) {
         this.name = name;
         this.level = level;
         this.memberId = memberId;
         this.score = score;
+        this.discountList = discountList;
     }
 
     public String getName() {
@@ -52,11 +59,19 @@ public class Vip {
         this.memberId = memberId;
     }
 
-    public Long getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(Long score) {
+    public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public List<String> getDiscountList() {
+        return discountList;
+    }
+
+    public void setDiscountList(List<String> discountList) {
+        this.discountList = discountList;
     }
 }

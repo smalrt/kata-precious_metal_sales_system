@@ -9,7 +9,7 @@ public class VipLevelResolver {
      * @param score
      * @return
      */
-    public VipLevelEnum resolver(Long score){
+    public static VipLevelEnum resolver(int score){
         if (score < 10000) {
             return VipLevelEnum.NORMAL;
         } else if (score < 50000) {
