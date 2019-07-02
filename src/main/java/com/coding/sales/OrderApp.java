@@ -8,6 +8,7 @@ import com.coding.sales.output.DiscountItemRepresentation;
 import com.coding.sales.output.OrderItemRepresentation;
 import com.coding.sales.output.OrderRepresentation;
 import com.coding.sales.output.PaymentRepresentation;
+import com.coding.sales.pay.PayHandler;
 import com.coding.sales.product.Product;
 import com.coding.sales.product.Store;
 import com.coding.sales.vip.Vip;
@@ -141,10 +142,11 @@ public class OrderApp {
         //打印-付款信息
         List<PaymentRepresentation> paymentItems = new ArrayList<PaymentRepresentation>();
         List<PaymentCommand> paymentCommandList = command.getPayments();
-        for (PaymentCommand paymentCommand : paymentCommandList) {
+        PayHandler.handler(paymentItems, paymentCommandList);
+        /*for (PaymentCommand paymentCommand : paymentCommandList) {
             PaymentRepresentation paymentRepresentation = new PaymentRepresentation(paymentCommand.getType(), paymentCommand.getAmount());
             paymentItems.add(paymentRepresentation);
-        }
+        }*/
 
         //计算新增积分
         int addScore = VipLevelHandler.handlerPoint(viper, totalAmt.subtract(discountTotalAmt));
