@@ -57,8 +57,6 @@ public class OrderApp {
         //根据会员卡号查询会员信息
         Vip viper = Vips.vipMap.get(memberId);
 
-        //校验会员是否有相应打折券
-
         //打印-订单信息
         List<OrderItemRepresentation> orderItems = new ArrayList<OrderItemRepresentation>();
         //打印-优惠信息
@@ -112,7 +110,6 @@ public class OrderApp {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        //TODO: 请完成需求指定的功能
 
         return result;
     }
