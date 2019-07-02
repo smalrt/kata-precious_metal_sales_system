@@ -17,6 +17,7 @@ import com.coding.sales.vip.VipLevelResolver;
 import com.coding.sales.vip.Vips;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -153,7 +154,7 @@ public class OrderApp {
         BigDecimal totalAmt_jsscore = totalAmt.subtract(discountTotalAmt);
         VipLevelEnum vipLevel = viper.getLevel();
         if (VipLevelEnum.NORMAL.equals(vipLevel)) {
-            addScore += Integer.valueOf(totalAmt_jsscore.toString().substring(0, totalAmt_jsscore.toString().indexOf(".")));
+            addScore += Integer.valueOf(totalAmt_jsscore.setScale(0, BigDecimal.ROUND_HALF_UP).toString());
         } else if (VipLevelEnum.GOLD.equals(vipLevel)) {
             String totalScore = totalAmt_jsscore.multiply(new BigDecimal(1.5)).toString();
             addScore += Integer.parseInt(String.valueOf(Math.ceil(Double.parseDouble(totalScore))));
