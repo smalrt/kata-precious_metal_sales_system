@@ -20,7 +20,7 @@ public class Store {
 
         List<String> list4 = new ArrayList<String>();
         list4.add("1|3|0.5");
-        list4.add("1|3|1");
+        list4.add("1|4|1");
         Product product4 = new Product("003002", "水晶之恋", new BigDecimal(980), "条", list4,  null);
         productMap.put(product4.getProductId(), product4);
 

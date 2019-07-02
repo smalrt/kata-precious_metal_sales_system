@@ -22,6 +22,7 @@ public class OrderAppTest {
                 {"TC2_1_Input.json", "TC2_1_Output.txt"},
                 {"TC3_0_Input.json", "TC3_0_Output.txt"},
                 {"TC3_1_Input.json", "TC3_1_Output.txt"},
+                {"TC4_0_Input.json", "TC4_0_Output.txt"},
         };
 
         return Arrays.asList(data);
